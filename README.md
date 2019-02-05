@@ -8,7 +8,7 @@ Dockerized restbase server [![Docker Hub Status]][Docker Hub Link]
 다음 명령으로 RESTBase를 7231 포트로 열 수 있습니다.
 
 ```sh
-docker run -p 7231:7231 femiwiki/restbase [-e MEDIAWIKI_APIS_URI=...] [-e MEDIAWIKI_APIS_DOMAIN=...] [-e PARSOID_URI=...]
+docker run -p 7231:7231 [-e MEDIAWIKI_APIS_URI=...] [-e MEDIAWIKI_APIS_DOMAIN=...] [-e PARSOID_URI=...] femiwiki/restbase
 ```
 
 이후 [http://localhost:7231](http://localhost:7231)에 접속하여 작동을 확인해 주세요.
