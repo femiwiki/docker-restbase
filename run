@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+const configFile = '/srv/restbase/config.yaml';
+
+const fs = require('fs');
+
+fs.readFile('/a/secret.php', 'utf8', (err, data) => {
+  if (err) throw err;
+
+  // Roughly import /a/secret.php
+  const hostname = data.match(/^\$wgRESTBaseCassandraServer\s*=\s*['"](.+)['"]\s*\;/m)[1];
+  const username = data.match(/^\$wgRESTBaseCassandraUser\s*=\s*['"](.+)['"]\s*\;/m)[1];
+  const password = data.match(/^\$wgRESTBaseCassandraPassword\s*=\s*['"](.+)['"]\s*\;/m)[1];
+
+  // Update config.yaml
+  fs.readFile(configFile, 'utf8', (err, data) => {
+    data = data.replace(/DB_HOSTNAME/g, hostname);
+    data = data.replace(/DB_USERNAME/g, username);
+    data = data.replace(/DB_PASSWORD/g, password);
+    data = data.replace(/MEDIAWIKI_APIS_URI/g, process.env.MEDIAWIKI_APIS_URI || 'http://http/api.php');
+    data = data.replace(/PARSOID_URI/g, process.env.PARSOID_URI || 'http://parsoid:8000');
+    data = data.replace(/MEDIAWIKI_APIS_DOMAIN/g, process.env.MEDIAWIKI_APIS_DOMAIN || 'femiwiki.com');
+
+    fs.writeFile(configFile, data, (err) => {
+      if (err) throw err;
+    });
+  });
+});
+

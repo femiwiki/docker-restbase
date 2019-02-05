@@ -27,7 +27,7 @@ RUN npm install
 #
 COPY config.yaml .
 EXPOSE 7231
-CMD sed -i "s~MEDIAWIKI_APIS_URI~${MEDIAWIKI_APIS_URI:-https://femiwiki.com/api.php}~" /srv/restbase/config.yaml &&\
-    sed -i "s~PARSOID_URI~${PARSOID_URI:-http://parsoid:8000}~" /srv/restbase/config.yaml &&\
-    sed -i "s~MEDIAWIKI_APIS_DOMAIN~${MEDIAWIKI_APIS_DOMAIN:-femiwiki.com}~" /srv/restbase/config.yaml &&\
+
+COPY run /usr/local/bin/
+CMD /usr/local/bin/run &&\
     node server.js
