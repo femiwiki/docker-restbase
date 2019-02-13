@@ -5,7 +5,7 @@ const configFile = '/srv/restbase/config.yaml';
 const fs = require('fs');
 
 fs.readFile('/a/secret.php', 'utf8', (err, data) => {
-  if (err) throw err;
+  if (err) { throw err; }
 
   // Roughly import /a/secret.php
   const hostname = data.match(/^\$wgRESTBaseCassandraServer\s*=\s*['"](.+)['"]\s*\;/m)[1];
@@ -22,7 +22,7 @@ fs.readFile('/a/secret.php', 'utf8', (err, data) => {
     data = data.replace(/MEDIAWIKI_APIS_DOMAIN/g, process.env.MEDIAWIKI_APIS_DOMAIN || 'femiwiki.com');
 
     fs.writeFile(configFile, data, (err) => {
-      if (err) throw err;
+      if (err) { throw err; }
     });
   });
 });
