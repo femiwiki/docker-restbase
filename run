@@ -21,7 +21,7 @@ fs.readFile('/a/secret.php', 'utf8', (err, data) => {
     data = data.replace(/PARSOID_URI/g, process.env.PARSOID_URI || 'http://parsoid:8000');
     data = data.replace(/MEDIAWIKI_APIS_DOMAIN/g, process.env.MEDIAWIKI_APIS_DOMAIN || 'femiwiki.com');
 
-    fs.writeFile(configFile, data, (err) => {
+    fs.writeFile(configFile, data, err => {
       if (err) { throw err; }
     });
   });
