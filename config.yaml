@@ -29,7 +29,7 @@ services:
         paths:
           /{domain:MEDIAWIKI_APIS_DOMAIN}:
             x-modules:
-              - path: projects/example.yaml
+              - path: projects/femiwiki.yaml
                 options:
                   action:
                     apiUriTemplate: MEDIAWIKI_APIS_URI

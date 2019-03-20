@@ -26,6 +26,7 @@ RUN npm install
 # Config
 #
 COPY config.yaml .
+COPY femiwiki.yaml ./projects
 EXPOSE 7231
 
 COPY run /usr/local/bin/
