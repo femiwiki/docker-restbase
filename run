@@ -15,9 +15,9 @@ async function main() {
 
   // Extract secrets from 'secret.php' using RegExp
   const secret = await secretPromise;
-  const hostname = secret.match(/^\$wgRESTBaseCassandraServer\s*=\s*['"](.+)['"]\s*\;/m)[1];
-  const username = secret.match(/^\$wgRESTBaseCassandraUser\s*=\s*['"](.+)['"]\s*\;/m)[1];
-  const password = secret.match(/^\$wgRESTBaseCassandraPassword\s*=\s*['"](.+)['"]\s*\;/m)[1];
+  const hostname = secret.match(/^\$wgRESTBaseStorageServer\s*=\s*['"](.+)['"]\s*\;/m)[1];
+  const username = secret.match(/^\$wgRESTBaseStorageUser\s*=\s*['"](.+)['"]\s*\;/m)[1];
+  const password = secret.match(/^\$wgRESTBaseStoragePassword\s*=\s*['"](.+)['"]\s*\;/m)[1];
 
   // Update config.yaml
   let config = await configPromise;

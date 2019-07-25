@@ -37,9 +37,9 @@ services:
                   parsoid:
                     host: PARSOID_URI
                   table:
-                    backend: cassandra
-                    hosts: [DB_HOSTNAME]
-                    keyspace: femiwiki
+                    backend: mysql
+                    host: DB_HOSTNAME
+                    database: restbase
                     username: DB_USERNAME
                     password: DB_PASSWORD
                     storage_groups:

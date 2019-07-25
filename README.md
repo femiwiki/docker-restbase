@@ -1,7 +1,7 @@
 Dockerized restbase server [![Docker Hub Status]][Docker Hub Link]
 ========
 
-[페미위키]를 위해 데이터베이스로 [Cassandra]를 사용하도록 하는 등의 설정이 된 [RESTBase] Docker Image.
+[페미위키]를 위해 데이터베이스로 [MySQL]를 사용하도록 하는 등의 설정이 된 [RESTBase] Docker Image.
 
 ## 실행하기
 
@@ -28,9 +28,9 @@ PARSOID_URI | `http://parsoid:8000` | Parsoid의 URI. (도커 컨테이너 안�
 
 이름 | 설명
 --|--
-`$wgRESTBaseCassandraServer` | 접속할 Cassandra의 URI. (도커 컨테이너 안에서 접근할 수 있어야 함)
-`$wgRESTBaseCassandraUser` | Cassandra에 접속할 때 사용할 사용자 이름
-`$wgRESTBaseCassandraPassword` | Cassandra에 접속할 때 사용할 사용자 암호
+`$wgRESTBaseStorageServer` | 접속할 MySQL의 URI. (도커 컨테이너 안에서 접근할 수 있어야 함)
+`$wgRESTBaseStorageUser` | MySQL에 접속할 때 사용할 사용자 이름
+`$wgRESTBaseStoragePassword` | MySQL에 접속할 때 사용할 사용자 암호
 
 ## 빌드
 
