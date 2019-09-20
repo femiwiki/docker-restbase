@@ -1,6 +1,6 @@
 FROM node:10-alpine
 
-ARG RESTBASE_VERSION=0.19.3
+ARG RESTBASE_VERSION=1.1.1
 ARG NODE_ENV=production
 # Environment variables used by RESTBase
 ENV APP_CONFIG_PATH=/srv/restbase/config.yaml
@@ -28,8 +28,7 @@ RUN apk del .build-deps
 #
 # Config
 #
-COPY config.yaml femiwiki.yaml /srv/restbase/
-RUN mv femiwiki.yaml $APP_BASE_PATH/projects/
+COPY config.yaml /srv/restbase/
 EXPOSE 7231
 
 COPY run /usr/local/bin/
