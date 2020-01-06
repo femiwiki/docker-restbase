@@ -20,7 +20,7 @@ WORKDIR /srv/restbase
 # Install dependencies of restbase
 RUN apk add --no-cache --virtual \
     git python
-RUN npm install
+RUN npm install --dev
 
 #
 # Config

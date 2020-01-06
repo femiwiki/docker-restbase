@@ -37,13 +37,14 @@ services:
                   parsoid:
                     host: PARSOID_URI
                   table:
-                    backend: cassandra
-                    hosts: [DB_HOSTNAME]
-                    keyspace: femiwiki
-                    username: DB_USERNAME
-                    password: DB_PASSWORD
+                    backend: sqlite
+                    dbname: db.sqlite3
+                    pool_idle_timeout: 20000
+                    retry_delay: 250
+                    retry_limit: 10
+                    show_sql: false
                     storage_groups:
-                      - name: default.group.local
+                      - name: local
                         domains: /./
                   mobileapps:
                     host: https://appservice.wmflabs.org
