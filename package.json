@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "dependencies": {
+    "restbase": "1.1.4",
+    "restbase-mod-table-sqlite": "^1.2.1"
+  }
+}

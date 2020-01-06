@@ -3,27 +3,16 @@
 
 const fs = require('fs').promises;
 
-const SECRET_FILE = '/a/secret.php';
 const CONFIG_FILE = '/srv/restbase/config.yaml';
 
 main();
 
 async function main() {
   // Start reading files
-  const secretPromise = fs.readFile(SECRET_FILE, 'utf8');
   const configPromise = fs.readFile(CONFIG_FILE, 'utf8');
-
-  // Extract secrets from 'secret.php' using RegExp
-  const secret = await secretPromise;
-  const hostname = secret.match(/^\$wgRESTBaseCassandraServer\s*=\s*['"](.+)['"]\s*\;/m)[1];
-  const username = secret.match(/^\$wgRESTBaseCassandraUser\s*=\s*['"](.+)['"]\s*\;/m)[1];
-  const password = secret.match(/^\$wgRESTBaseCassandraPassword\s*=\s*['"](.+)['"]\s*\;/m)[1];
 
   // Update config.yaml
   let config = await configPromise;
-  config = config.replace(/DB_HOSTNAME/g, hostname);
-  config = config.replace(/DB_USERNAME/g, username);
-  config = config.replace(/DB_PASSWORD/g, password);
   config = config.replace(/PARSOID_URI/g, process.env.PARSOID_URI || 'http://parsoid:8000');
   config = config.replace(/MEDIAWIKI_APIS_URI/g, process.env.MEDIAWIKI_APIS_URI || 'http://http/api.php');
   config = config.replace(/MEDIAWIKI_APIS_DOMAIN/g, process.env.MEDIAWIKI_APIS_DOMAIN || 'femiwiki.com');
