@@ -18,9 +18,8 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s \
 WORKDIR /srv/restbase
 RUN apk add --no-cache --virtual .build-deps \
     git python make g++
-COPY package.json /srv/restbase/
-RUN yarn &&\
-    ln -s $APP_BASE_PATH/server.js server.js
+COPY package.json ./
+RUN yarn
 
 # Remove build dependencies
 RUN apk del .build-deps
@@ -28,9 +27,9 @@ RUN apk del .build-deps
 #
 # Config
 #
-COPY config.yaml /srv/restbase/
+COPY config.yaml ./
 EXPOSE 7231
 
 COPY run /usr/local/bin/
 CMD /usr/local/bin/run &&\
-    node server.js
+    node $APP_BASE_PATH/server.js
