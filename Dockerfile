@@ -1,5 +1,10 @@
 FROM node:10-alpine
 
+ARG NODE_ENV=production
+# Environment variables used by RESTBase
+ENV APP_CONFIG_PATH=/srv/restbase/config.yaml
+ENV APP_BASE_PATH=/srv/restbase/node_modules/restbase
+
 #
 # Healthcheck
 #
@@ -8,25 +13,22 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s \
   CMD curl -f http://localhost:7231/ || exit 1
 
 #
-# Install restbase
+# Install restbase and its build dependencies
 #
-ARG RESTBASE_VERSION=0.19.2
-ADD https://github.com/wikimedia/restbase/archive/v${RESTBASE_VERSION}.tar.gz /tmp/a.tar.gz
-RUN tar -xf /tmp/a.tar.gz -C /tmp/ &&\
-    rm /tmp/a.tar.gz &&\
-    mv /tmp/restbase-${RESTBASE_VERSION} /srv/restbase
 WORKDIR /srv/restbase
+RUN apk add --no-cache --virtual .build-deps \
+    git python make g++
+COPY package.json /srv/restbase/
+RUN yarn &&\
+    ln -s $APP_BASE_PATH/server.js server.js
 
-# Install dependencies of restbase
-RUN apk add --no-cache --virtual \
-    git python
-RUN npm install --dev
+# Remove build dependencies
+RUN apk del .build-deps
 
 #
 # Config
 #
-COPY config.yaml .
-COPY femiwiki.yaml ./projects
+COPY config.yaml /srv/restbase/
 EXPOSE 7231
 
 COPY run /usr/local/bin/
