@@ -19,7 +19,7 @@ WORKDIR /srv/restbase
 RUN apk add --no-cache --virtual .build-deps \
     git python make g++
 COPY package.json ./
-RUN yarn
+RUN yarn --frozen-lockfile
 
 # Remove build dependencies
 RUN apk del .build-deps
