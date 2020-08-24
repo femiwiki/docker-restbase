@@ -48,6 +48,9 @@ services:
                     /transform:
                       x-modules:
                         - path: v1/transform.yaml
+                    /media:
+                      x-modules:
+                        - path: v1/mathoid.yaml
 
           /{domain:MEDIAWIKI_APIS_DOMAIN}/{api:sys}:
             x-modules:
@@ -96,3 +99,12 @@ services:
                           options:
                             parsoidHost: PARSOID_URI
                             response_cache_control: 's-maxage=0, max-age=86400'
+                    /mathoid:
+                      x-modules:
+                        - path: sys/mathoid.js
+                          options:
+                            host: MATHOID_URI
+                    /events:
+                      x-modules:
+                        - path: sys/events.js
+                          options: '{{merge({"skip_updates": options.skip_updates}, options.events)}}'

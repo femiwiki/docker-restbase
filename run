@@ -1,21 +1,48 @@
 #!/usr/bin/env node
-'use strict'
+'use strict';
 
 const fs = require('fs').promises;
 
-const CONFIG_FILE = '/srv/restbase/config.yaml';
-
 main();
 
-async function main() {
+async function replaceInFile(path, replaces) {
   // Start reading files
-  const configPromise = fs.readFile(CONFIG_FILE, 'utf8');
+  let file = await fs.readFile(path, 'utf8');
 
-  // Update config.yaml
-  let config = await configPromise;
-  config = config.replace(/PARSOID_URI/g, process.env.PARSOID_URI || 'http://parsoid:8000');
-  config = config.replace(/MEDIAWIKI_APIS_URI/g, process.env.MEDIAWIKI_APIS_URI || 'http://http/api.php');
-  config = config.replace(/MEDIAWIKI_APIS_DOMAIN/g, process.env.MEDIAWIKI_APIS_DOMAIN || 'femiwiki.com');
+  // Update file
+  if (replaces[0].constructor === Array)
+    for (const r of replaces) {
+      file = file.replace(r[0], r[1]);
+    }
+  else {
+    file = file.replace(replaces[0], replaces[1]);
+  }
 
-  await fs.writeFile(CONFIG_FILE, config);
+  // Write to file
+  await fs.writeFile(path, file);
+}
+
+async function main() {
+  const ROOT = '/srv/restbase';
+  const DOMAIN = process.env.MEDIAWIKI_APIS_DOMAIN || 'femiwiki.com';
+
+  await replaceInFile(`${ROOT}/config.yaml`, [
+    [
+      /MEDIAWIKI_APIS_URI/g,
+      process.env.MEDIAWIKI_APIS_URI || 'http://http/api.php',
+    ],
+    [/MEDIAWIKI_APIS_DOMAIN/g, DOMAIN],
+    [/PARSOID_URI/g, process.env.PARSOID_URI || 'http://parsoid:8000'],
+    [/MATHOID_URI/g, process.env.MATHOID_URI || 'http://mathoid:10044'],
+  ]);
+
+  await replaceInFile(
+    `${ROOT}/node_modules/restbase/v1/mathoid.yaml`,
+    [/\/wikimedia\.org\/sys/g, `/${DOMAIN}/sys`]
+  );
+
+  await replaceInFile(
+    `${ROOT}/node_modules/restbase/sys/mathoid.js`,
+    [/\/\/wikimedia\.org\/api\/rest_/g, `//${DOMAIN}/`]
+  );
 }
