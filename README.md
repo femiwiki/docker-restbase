@@ -1,4 +1,4 @@
-Dockerized restbase server [![Docker Hub Status]][Docker Hub Link]
+Dockerized restbase server [![Container Registry]][Container Registry Link]
 ========
 
 [페미위키]를 위해 데이터베이스로 SQLite를 사용하도록 하는 등의 설정이 된 [RESTBase] Docker Image.
@@ -37,8 +37,8 @@ The source code of *femiwiki/restbase* is primarily distributed under the terms
 of the [GNU Affero General Public License v3.0] or any later version. See
 [COPYRIGHT] for details.
 
-[Docker Hub Status]: https://badgen.net/docker/pulls/femiwiki/restbase/?icon=docker&label=pulls
-[Docker Hub Link]: https://hub.docker.com/r/femiwiki/restbase/
+[Container Registry]: https://badgen.net/badge/icon/docker?icon=docker&label
+[Container Registry Link]: https://github.com/orgs/femiwiki/packages/container/restbase
 [페미위키]: https://femiwiki.com
 [RESTBase]: https://www.mediawiki.org/wiki/RESTBase
 [GNU Affero General Public License v3.0]: LICENSE
