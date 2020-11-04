@@ -1,28 +1,28 @@
 Dockerized restbase server [![Container Registry]][Container Registry Link]
 ========
 
-[페미위키]를 위해 데이터베이스로 SQLite를 사용하도록 하는 등의 설정이 된 [RESTBase] Docker Image.
+A [RESTBase] Docker image that uses SQLite as its database. This is originally created for [FemiWiki].
 
-## 실행하기
+## Usage
 
-다음과 같은 명령으로 RESTBase를 7231 포트로 열 수 있습니다.
+The following command starts RESTBase container:
 
 ```sh
 docker run -p 7231:7231 [-e MEDIAWIKI_APIS_URI=...] [-e MEDIAWIKI_APIS_DOMAIN=...] [-e PARSOID_URI=...] femiwiki/restbase
 ```
 
-이후 [http://localhost:7231](http://localhost:7231)에 접속하여 작동을 확인해 주세요.
+Then, access it via http://localhost:7231 in a browser.
 
-### 환경 변수
+### Environment Variables
 
-이름 | 기본값 | 설명
+Variables | Default | Description
 --|--|--
-MEDIAWIKI_APIS_URI | `http://http/api.php` | 위키의 API path. (도커 컨테이너 안에서 접근할 수 있어야 함)
-MEDIAWIKI_APIS_DOMAIN | `femiwiki.com` | 위키의 [LocalSettings.php](https://www.mediawiki.org/wiki/Manual:LocalSettings.php)에서 정의한 `$wgVirtualRestConfig['modules']['restbase']['domain']`과 동일한 값 ([자세한 설명](https://www.mediawiki.org/wiki/RESTBase/Installation#Configuration))
-PARSOID_URI | `http://parsoid:8000` | Parsoid의 URI. (도커 컨테이너 안에서 접근할 수 있어야 함)
-MATHOID_URI | `http://mathoid:10044` | Mathoid의 URL. (도커 컨테이너 안에서 접근할 수 있어야 함)
+MEDIAWIKI_APIS_URI | `http://http/api.php` | API path for you wiki. (must be accessible by docker container)
+MEDIAWIKI_APIS_DOMAIN | `femiwiki.com` | Same as `$wgVirtualRestConfig['modules']['restbase']['domain']` defined in [LocalSettings.php](https://www.mediawiki.org/wiki/Manual:LocalSettings.php) ([details](https://www.mediawiki.org/wiki/RESTBase/Installation#Configuration))
+PARSOID_URI | `http://parsoid:8000` | URI for Parsoid. (must be accessible by docker container)
+MATHOID_URI | `http://mathoid:10044` | URI for Mathoid. (must be accessible by docker container)
 
-## 빌드
+## Build
 
 ```sh
 docker build --tag femiwiki/restbase .
@@ -39,7 +39,7 @@ of the [GNU Affero General Public License v3.0] or any later version. See
 
 [Container Registry]: https://badgen.net/badge/icon/docker?icon=docker&label
 [Container Registry Link]: https://github.com/orgs/femiwiki/packages/container/restbase
-[페미위키]: https://femiwiki.com
+[FemiWiki]: https://femiwiki.com
 [RESTBase]: https://www.mediawiki.org/wiki/RESTBase
 [GNU Affero General Public License v3.0]: LICENSE
 [COPYRIGHT]: COPYRIGHT
