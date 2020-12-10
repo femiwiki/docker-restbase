@@ -17,6 +17,7 @@ Then, access it via http://localhost:7231 in a browser.
 
 Variables | Default | Description
 --|--|--
+RESTBASE_NUM_WORKERS | `'ncpu'` | Number of worker processes to spawn.<br/>Set to 0 to run everything in a single process without clustering.<br/>Use `'ncpu'` to run as many workers as there are CPU units
 MEDIAWIKI_APIS_URI | `http://http/api.php` | API path for you wiki. (must be accessible by docker container)
 MEDIAWIKI_APIS_DOMAIN | `femiwiki.com` | Same as `$wgVirtualRestConfig['modules']['restbase']['domain']` defined in [LocalSettings.php](https://www.mediawiki.org/wiki/Manual:LocalSettings.php) ([details](https://www.mediawiki.org/wiki/RESTBase/Installation#Configuration))
 PARSOID_URI | `http://parsoid:8000` | URI for Parsoid. (must be accessible by docker container)

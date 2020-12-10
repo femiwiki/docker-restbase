@@ -31,6 +31,10 @@ async function main() {
       /MEDIAWIKI_APIS_URI/g,
       process.env.MEDIAWIKI_APIS_URI || 'http://http/api.php',
     ],
+    [
+      /RESTBASE_NUM_WORKERS/g,
+      process.env.RESTBASE_NUM_WORKERS || "'ncpu'",
+    ],
     [/MEDIAWIKI_APIS_DOMAIN/g, DOMAIN],
     [/PARSOID_URI/g, process.env.PARSOID_URI || 'http://parsoid:8000'],
     [/MATHOID_URI/g, process.env.MATHOID_URI || 'http://mathoid:10044'],

@@ -1,6 +1,7 @@
 # Reference:
-#   https://github.com/wikimedia/restbase/blob/master/config.example.yaml
+#   https://github.com/wikimedia/restbase/blob/v1.1.4/config.example.yaml
 
+num_workers: RESTBASE_NUM_WORKERS
 services:
   - name: restbase
     module: hyperswitch
