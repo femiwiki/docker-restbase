@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM --platform=$TARGETPLATFORM node:10-alpine
 
 ARG NODE_ENV=production
 # Environment variables used by RESTBase
