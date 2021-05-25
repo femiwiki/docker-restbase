@@ -97,9 +97,9 @@ aws4@^1.8.0:
   integrity sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
 
 balanced-match@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
-  integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
+  integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
 bcrypt-pbkdf@^1.0.0:
   version "1.0.2"
@@ -531,9 +531,9 @@ glob@^6.0.1:
     path-is-absolute "^1.0.0"
 
 glob@^7.1.3:
-  version "7.1.6"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
-  integrity sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
+  version "7.1.7"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.7.tgz#3b193e9233f01d42d0b3f78294bbeeb418f94a90"
+  integrity sha512-OvD9ENzPLbegENnYP5UUfJIirTg4+XwMWGaQfQTY0JenxNvvIKP3U3/tAQSPIu/lHxXYSZmpXlUHeqAIdKzBLQ==
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -612,9 +612,9 @@ iconv-lite@^0.4.4:
     safer-buffer ">= 2.1.2 < 3"
 
 ignore-walk@^3.0.1:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/ignore-walk/-/ignore-walk-3.0.3.tgz#017e2447184bfeade7c238e4aefdd1e8f95b1e37"
-  integrity sha512-m7o6xuOaT1aqheYHKf8W6J5pYH85ZI9w077erOzLje3JsB1gkafkAhHHY19dqjulgIZHFm32Cp5uNZgcQqdJKw==
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/ignore-walk/-/ignore-walk-3.0.4.tgz#c9a09f69b7c7b479a5d74ac1a3c0d4236d2a6335"
+  integrity sha512-PY6Ii8o1jMRA1z4F2hRkH/xN59ox43DavKvD3oDpfurRlOJyAHpifIwpbdv1n4jt4ov0jSpw3kQ4GhJnpBL6WQ==
   dependencies:
     minimatch "^3.0.4"
 
@@ -770,9 +770,9 @@ kad-memstore@0.0.1:
   dependencies:
     readable-stream "^2.0.5"
 
-"kad@git+https://github.com/wikimedia/kad.git#master":
+"kad@github:wikimedia/kad#master":
   version "1.3.6"
-  resolved "git+https://github.com/wikimedia/kad.git#96f8f5c8e5a88f5dffed47abc20756e93e16387e"
+  resolved "https://codeload.github.com/wikimedia/kad/tar.gz/634a3fc7f60898ec541406d60ccf0d48556070e2"
   dependencies:
     async "^0.9.0"
     clarinet "^0.11.0"
@@ -782,7 +782,6 @@ kad-memstore@0.0.1:
     kad-localstorage "0.0.7"
     kad-memstore "0.0.1"
     lodash "^4.17.11"
-    merge "^1.2.0"
     ms "^0.7.0"
     msgpack5 "^3.3.0"
 
@@ -793,13 +792,13 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
-limitation@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/limitation/-/limitation-0.2.1.tgz#52c2845b4a3e34a8e4395ab48a241e358a97719d"
-  integrity sha512-5lMmsPc9ZtMjBk8rJ8ADKIj6AOgYvRtAuNfboO2TVPZsmcn6gSRyijUsA8KG6DUcJ89/hyQ3cnVRyzO1hbDavw==
+limitation@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/limitation/-/limitation-0.2.2.tgz#e0f3efdfcb118e94c7ec3d65e840dff1313c59a3"
+  integrity sha512-kUfYO29baIJzY3S4/j7qaWl0GdjxT88SEaIcUN98YGdhYh+m7Zkt1N4jGubVF05A7dzjfjgtQD/NI5APKl38RQ==
   dependencies:
     bluebird "^3.3.1"
-    kad "git+https://github.com/wikimedia/kad.git#master"
+    kad wikimedia/kad#master
     readable-stream "^2.0.5"
 
 locate-path@^3.0.0:
@@ -900,11 +899,6 @@ mem@^4.0.0:
     map-age-cleaner "^0.1.1"
     mimic-fn "^2.0.0"
     p-is-promise "^2.0.0"
-
-merge@^1.2.0:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.1.tgz#38bebf80c3220a8a487b6fcfb3941bb11720c145"
-  integrity sha512-VjFo4P5Whtj4vsLzsYBu5ayHhoHJ0UqNm7ibvShmbmoz7tGi0vXaoJbGdB+GmDMLUdg8DpQXEIeVDAe8MaABvQ==
 
 mime-db@1.47.0:
   version "1.47.0"
@@ -1056,9 +1050,9 @@ nopt@^4.0.1:
     osenv "^0.1.4"
 
 npm-bundled@^1.0.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.1.1.tgz#1edd570865a94cdb1bc8220775e29466c9fb234b"
-  integrity sha512-gqkfgGePhTpAEgUsGEgcq1rqPXA+tv/aVBlgEzfXwA1yiUJF7xtEt3CtVwOjNYQOVknDk0F20w58Fnm3EtG0fA==
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.1.2.tgz#944c78789bd739035b70baa2ca5cc32b8d860bc1"
+  integrity sha512-x5DHup0SuyQcmL3s7Rx/YQ8sbw/Hzg0rj48eN0dV7hf5cmQq5PXIeioroH3raV1QC1yh3uTYuMThvEQF3iKgGQ==
   dependencies:
     npm-normalize-package-bin "^1.0.1"
 
@@ -1443,9 +1437,9 @@ semver@^7.1.2, semver@latest:
     lru-cache "^6.0.0"
 
 service-runner@^2.7.3:
-  version "2.8.2"
-  resolved "https://registry.yarnpkg.com/service-runner/-/service-runner-2.8.2.tgz#122f92837597dfca5692a2ba0d3fead654301345"
-  integrity sha512-SspUqYN+hp8fB5qhG9PbTzIPL3ze5wKXThdyUny2BIA6wdT5MljVkYUCUMQgo5xjM4e95+qU+XrsvfM2ytt6ng==
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/service-runner/-/service-runner-2.8.3.tgz#78661eafed903b9493dea99768d67af9f8a5bde7"
+  integrity sha512-oOP54jRgWE9IBeStnYI9lIdJ333HHe+8pjAvBpDmRyOXNcsvVMN22hbuX93YVlTUE87I8J80ORZ3u01DgNKMYg==
   dependencies:
     bluebird "^3.7.2"
     bunyan "^1.8.12"
@@ -1454,7 +1448,7 @@ service-runner@^2.7.3:
     gelf-stream "^1.1.1"
     hot-shots "^6.8.7"
     js-yaml "^3.13.1"
-    limitation "^0.2.1"
+    limitation "^0.2.2"
     lodash.clonedeep "^4.5.0"
     prom-client "^11.5.3"
     semver "^7.1.2"
@@ -1601,9 +1595,9 @@ swagger-router@^0.7.4:
     uuid "^3.3.2"
 
 swagger-ui-dist@^3.23.11:
-  version "3.46.0"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.46.0.tgz#f08d2c9b4a2dce922ba363c598e4795b5ccf0b80"
-  integrity sha512-ueaZ45OHhHvGKmocvCkxFY8VCfbP5PgcxutoQxy9j8/VZeDoLDvg8FBf4SO6NxHhieNAdYPUd0O6G9FjJO2fqw==
+  version "3.49.0"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.49.0.tgz#8915df662b74a4dbc9583cd6d3d726c3910e3b33"
+  integrity sha512-R1+eT16XNP1bBLfacISifZAkFJlpwvWsS2vVurF5pbIFZnmCasD/hj+9r/q7urYdQyb0B6v11mDnuYU7rUpfQg==
 
 tar@^4:
   version "4.4.13"
@@ -1736,9 +1730,9 @@ wrappy@1:
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 
 "y18n@^3.2.1 || ^4.0.0", y18n@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.1.tgz#8db2b83c31c5d75099bb890b23f3094891e247d4"
-  integrity sha512-wNcy4NvjMYL8gogWWYAO7ZFWFfHcbdbE57tZO8e4cbpj8tfUcwrwqSl3ad8HxpYWCdXcJUCeKKZS62Av1affwQ==
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.3.tgz#b5f259c82cd6e336921efd7bfd8bf560de9eeedf"
+  integrity sha512-JKhqTOwSrqNA1NY5lSztJ1GrBiUodLMmIZuLiDaMRJ+itFd+ABVE8XBjOvIWL+rSqNDC74LCSFmlb/U4UZ4hJQ==
 
 yallist@^2.1.2:
   version "2.1.2"
